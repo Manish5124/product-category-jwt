@@ -1,3 +1,3 @@
 package com.example.jwtdemo.dto
 
-data class AuthResponse(val token: String)
+data class AuthResponse(val accessToken: String,val role:String)

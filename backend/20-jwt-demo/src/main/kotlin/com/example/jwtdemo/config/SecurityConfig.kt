@@ -22,10 +22,10 @@ class SecurityConfig(
         http
             .csrf { it.disable() }
             .authorizeHttpRequests {
-                it.requestMatchers("/auth/**", "/h2/**").permitAll()
-                it.requestMatchers("/admin/**")
+                it.requestMatchers("/api/auth/**", "/h2/**").permitAll()
+                it.requestMatchers("/api/admin/**")
                     .hasRole(Role.ADMIN.name)
-                it.requestMatchers("/users/**")
+                it.requestMatchers("/api/users/**")
                     .hasAnyRole(Role.ADMIN.name, Role.USER.name)
                 it.anyRequest().authenticated()
             }
