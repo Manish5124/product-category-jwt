@@ -16,7 +16,7 @@ export class UserComponent {
   
     constructor(private helloService:HelloService){
       helloService.helloUser().subscribe((res)=>{
-        this.message = res.toString()
+        this.message = res.message
       })
     }
   

@@ -16,7 +16,7 @@ export class AdminComponent {
 
   constructor(private helloService:HelloService){
     helloService.helloAdmin().subscribe((res)=>{
-      this.message = res.toString()
+      this.message = res.message
     })
   }
 
