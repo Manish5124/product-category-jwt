@@ -109,5 +109,10 @@ class AuthResource(
         )
     }
 
+    @PostMapping("/logout")
+    fun logout(response: HttpServletResponse){
+        jwtService.deleteRefreshTokenCookie(response)
+    }
+
 
 }

@@ -49,7 +49,6 @@ class JwtService(
 
     fun deleteRefreshTokenCookie(
         response: HttpServletResponse,
-        token: String
     ){
         val cookie = Cookie("refreshToken", "")
         cookie.isHttpOnly = true
