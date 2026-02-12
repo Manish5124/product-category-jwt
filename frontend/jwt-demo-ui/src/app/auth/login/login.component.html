@@ -1,0 +1,29 @@
+<h1>user Login Form</h1>
+<form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+  <div>
+    <label>username </label>
+    <input
+      type="text"
+      formControlName="username"
+      placeholder="Enter username"
+    />
+  </div>
+  <div>
+    <label>password </label>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Enter password"
+    />
+  </div>
+  <div>
+    <button [disabled]="loginForm.invalid">Login</button>
+    <p style="color: red">{{ errorMessage }}</p>
+    <p style="color: green" *ngIf="successMessage">
+      {{ successMessage }}
+    </p>
+  </div>
+  <div>
+    Not registered user? <a routerLink="/register">Register</a>
+  </div>
+</form>
