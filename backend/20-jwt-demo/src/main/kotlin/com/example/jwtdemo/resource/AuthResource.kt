@@ -83,7 +83,7 @@ class AuthResource(
     }
 
     @PostMapping("/refresh")
-    fun refresh(@RequestBody request: HttpServletRequest, response: HttpServletResponse): AuthResponse{
+    fun refresh(request: HttpServletRequest, response: HttpServletResponse): AuthResponse{
 
         val refreshToken = request.cookies?.firstOrNull{ it.name == "refreshToken"}
             ?.value
@@ -94,9 +94,6 @@ class AuthResource(
         val user = userPersistence.findByUsername(username)
             ?: throw RuntimeException("Invalid credentials")
 
-//        if(!encoder.matches(request.password, user.password)){
-//            throw RuntimeException("Invalid credentials")
-//        }
 
         val newAccessToken = jwtService.generateAccessToken(user.username, user.role.name)
         val newRefreshToken = jwtService.generateRefreshToken(user.username)
