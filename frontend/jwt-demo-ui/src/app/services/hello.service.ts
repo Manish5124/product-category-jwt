@@ -11,15 +11,15 @@ export class HelloService {
   constructor(private http:HttpClient,private authService:AuthService) { }
 
   helloUser(){
-
-    const headers = new HttpHeaders({'Authorization':'Bearer '+this.authService.token})
-
-    return this.http.get<{message: string}>(environment.apiBaseUrl+"/api/user/hello",{headers:headers})
+    return this.http.get<{message: string}>(environment.apiBaseUrl+"/api/user/hello")
+    // const headers = new HttpHeaders({'Authorization':'Bearer '+this.authService.token})
+    // return this.http.get<{message: string}>(environment.apiBaseUrl+"/api/user/hello",{headers:headers})
   }
 
   helloAdmin(){
-    const headers = new HttpHeaders({'Authorization':'Bearer '+this.authService.token})
-    return this.http.get<{message: string}>(environment.apiBaseUrl+"/api/admin/hello",{headers:headers})
+    return this.http.get<{message: string}>(environment.apiBaseUrl+"/api/admin/hello")
+    // const headers = new HttpHeaders({'Authorization':'Bearer '+this.authService.token})
+    // return this.http.get<{message: string}>(environment.apiBaseUrl+"/api/admin/hello",{headers:headers})
   }
 
 }
